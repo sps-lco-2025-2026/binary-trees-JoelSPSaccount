@@ -17,17 +17,18 @@ public sealed class BasicLinkedListTests
     public void TestCount()
     {
         var ill = new BinaryTree(5);
-        ill.Add(7);
-        ill.Add(9);
-        Assert.AreEqual(3, ill.Count);
+        ill.Insert(7);
+        ill.Insert(9);
+        ill.Insert(9);
+        Assert.AreEqual(4, ill.Count);
     }
 
     [TestMethod]
     public void TestSum()
     {
         var ill = new BinaryTree(5);
-        ill.Add(7);
-        ill.Add(9);
+        ill.Insert(7);
+        ill.Insert(9);
         Assert.AreEqual(21, ill.Sum);
     }
 
@@ -35,19 +36,18 @@ public sealed class BasicLinkedListTests
     public void TestToStringExplicit()
     {
         var ill = new BinaryTree(5);
-        ill.Add(7);
-        ill.Add(9);
+        ill.Insert(7);
+        ill.Insert(9);
         Assert.AreEqual("{5, 7, 9}", ill.ToString());
     }
-    
     [TestMethod]
-    public void TestOrder()
+    public void TestSearch()
     {
-        var ill = new BinaryTree(5);
-        ill.Add(7);
-        ill.Prepend(3);
-        Assert.AreEqual("{3, 5, 7}", ill.ToString());
+        var ill = new BinaryTree(7);
+        ill.Insert(4);
+        ill.Insert(9);
+        ill.Insert(3);
+        ill.Insert(5);
+        Assert.IsTrue(ill.Contains(5));
     }
-
-
 }
