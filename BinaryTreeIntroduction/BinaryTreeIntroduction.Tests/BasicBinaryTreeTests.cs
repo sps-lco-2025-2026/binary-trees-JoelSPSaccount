@@ -3,7 +3,7 @@
 namespace BinaryTreeIntroduction.Tests;
 
 [TestClass]
-public sealed class BasicLinkedListTests
+public sealed class BasicBinaryTreeTests
 {
 
     [TestMethod]
@@ -78,3 +78,4 @@ public sealed class BasicLinkedListTests
         Assert.IsTrue(false);
     }
 }
+
