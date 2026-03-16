@@ -1,7 +1,4 @@
-﻿using System.ComponentModel.Design.Serialization;
-using System.Runtime.ExceptionServices;
-
-namespace BinaryTreeIntroduction.Lib;
+﻿namespace BinaryTreeIntroduction.Lib;
 
 public class BinaryTree
 {
