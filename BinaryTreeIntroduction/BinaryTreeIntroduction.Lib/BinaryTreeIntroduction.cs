@@ -16,7 +16,7 @@ public class BinaryTree
         if (_root == null)
             _root = new IntegerNode(v);
         else
-            _root.Add(v);
+            _root.Insert(v);
     }
 
     
