@@ -50,4 +50,19 @@ public sealed class BasicLinkedListTests
         ill.Insert(5);
         Assert.IsTrue(ill.Contains(5));
     }
+
+    [TestMethod]
+    public void TestDeletion()
+    {
+        var ill = new BinaryTree(7);
+        ill.Insert(4);
+        ill.Insert(9);
+        ill.Insert(5);
+        Assert.IsTrue(ill.Delete(5));
+        Assert.IsFalse(ill.Delete(5));
+        Assert.IsFalse(ill.Contains(5));
+        Assert.AreEqual(3, ill.Count);
+    }
+
+    
 }
