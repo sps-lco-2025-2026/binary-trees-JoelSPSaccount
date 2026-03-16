@@ -1,4 +1,5 @@
-﻿using System.Runtime.ExceptionServices;
+﻿using System.ComponentModel.Design.Serialization;
+using System.Runtime.ExceptionServices;
 
 namespace BinaryTreeIntroduction.Lib;
 
@@ -31,6 +32,8 @@ public class BinaryTree
         else return _root.Contains(v);
     }
 
+    public bool IsBalanced => _root == null? true : (_root.MaxDepth() == _root.MinDepth());
+
     public override string ToString()
     {
         return _root == null ? "{}" : $"{_root}";
@@ -40,8 +43,8 @@ public class BinaryTree
 public class IntegerNode
 {
     int _value;
-    IntegerNode? _left;
-    IntegerNode? _right;
+    IntegerNode _left = null;
+    IntegerNode _right = null;
     int _count = 1;
 
     //internal int Count => _right == null ? 1 : 1 + _right.Count;
@@ -116,5 +119,27 @@ public class IntegerNode
         else _use = _right;
         if (_use == null) return false;
         else return _use.Delete(v);
+    }
+
+    internal int MaxDepth()
+    {
+        if ((_left == null) & (_right == null)) return 1;
+        if (_left == null) return _right.MaxDepth();
+        if (_right == null) return _left.MaxDepth();
+        int l = _left.MaxDepth();
+        int r = _right.MaxDepth();
+        if (l>r) return l;
+        return r;
+    }
+
+    internal int MinDepth()
+    {
+        if ((_left == null) & (_right == null)) return 1;
+        if (_left == null) return _right.MinDepth();
+        if (_right == null) return _left.MinDepth();
+        int l = _left.MinDepth();
+        int r = _right.MinDepth();
+        if (l<r) return l;
+        return r;
     }
 }

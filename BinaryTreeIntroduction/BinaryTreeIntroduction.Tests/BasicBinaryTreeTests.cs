@@ -64,5 +64,16 @@ public sealed class BasicLinkedListTests
         Assert.AreEqual(3, ill.Count);
     }
 
-    
+    [TestMethod]
+    public void TestBalance()
+    {
+        var ill = new BinaryTree(4);
+        ill.Insert(2);
+        ill.Insert(6);
+        ill.Insert(1);
+        ill.Insert(3);//    4
+        ill.Insert(5);//  2---6
+        ill.Insert(7);//1--3 5--7
+        Assert.IsTrue(ill.IsBalanced);
+    }
 }
